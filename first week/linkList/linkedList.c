@@ -11,7 +11,7 @@
  */
 
 Status InitList(LinkedList *L) {
-    *L = (LinkedList)malloc(sizeof(LNode));//Ò»¼¶Ö¸Õë
+    *L = (LinkedList)malloc(sizeof(LNode));//ä¸€çº§æŒ‡é’ˆ
     if (!(*L)){
         return ERROR;
     }
@@ -56,7 +56,7 @@ Status InsertList(LNode *p, LNode *q) {
 }
 /**
  *  @name        : Status DeleteList(LNode *p, ElemType *e)
- *	@description : delete the first node after the node p and assign its value to e//¸³Öµ¸øe
+ *	@description : delete the first node after the node p and assign its value to e//èµ‹å€¼ç»™e
  *	@param		 : p, e
  *	@return		 : Status
  *  @notice      : None
@@ -121,13 +121,13 @@ Status SearchList(LinkedList L, ElemType e) {
 Status ReverseList(LinkedList *L) {
     if (L==NULL || (*L)==NULL || ((*L)->next)==NULL)
         return ERROR;
-    LinkedList pre = *L;  //¼ÇÂ¼Ô­ÏÈµÄÍ·;
-    *L = NULL;            //ÈÃÔ­ÏÈµÄÍ·Ö¸Ïò¿Õ;
+    LinkedList pre = *L;  //è®°å½•åŸå…ˆçš„å¤´;
+    *L = NULL;            //è®©åŸå…ˆçš„å¤´æŒ‡å‘ç©º;
     while (pre){
         LinkedList q = pre;
-        pre = pre ->next;   //³åµ½Î²½ÚµãºóÃæµÄNUll;
-        q->next = *L;       //·´×ª;
-        *L = q;          //Î´À´µÄÍ·,ÂıpreÒ»²½;
+        pre = pre ->next;   //å†²åˆ°å°¾èŠ‚ç‚¹åé¢çš„NUll;
+        q->next = *L;       //åè½¬;
+        *L = q;          //æœªæ¥çš„å¤´,æ…¢preä¸€æ­¥;
     }
     return SUCCESS;
 }
@@ -163,19 +163,21 @@ LNode* ReverseEvenList(LinkedList *L) {
     if (L==NULL || (*L)==NULL || ((*L)->next)==NULL){
         return ERROR;
     }
-    LinkedList pre = *L;  //¼ÇÂ¼Ô­ÏÈµÄÍ·;
-    *L = NULL;            //ÈÃÔ­ÏÈµÄÍ·Ö¸Ïò¿Õ;
+    LinkedList pre = *L;  //è®°å½•åŸå…ˆçš„å¤´;
+    *L = NULL;            //è®©åŸå…ˆçš„å¤´æŒ‡å‘ç©º;
     int sum = 1;
     while (pre){
         LinkedList q = pre;
-        pre = pre ->next;   //³åµ½Î²½ÚµãºóÃæµÄNUll;
-        q->next = *L;       //·´×ª;
-        *L = q;          //Î´À´µÄÍ·,ÂıpreÒ»²½;
-        sum ++;             //¼ÆÊı£¬Ã¿´ÎË«Êı£¬Öµ½»»»;
+        pre = pre ->next;   //å†²åˆ°å°¾èŠ‚ç‚¹åé¢çš„NUll;
+        q->next = *L;       //åè½¬;
+        *L = q;          //æœªæ¥çš„å¤´,æ…¢preä¸€æ­¥;
+        sum ++;             //è®¡æ•°ï¼Œæ¯æ¬¡åŒæ•°ï¼Œå€¼äº¤æ¢;
         if (sum%2 == 0 && pre != NULL){
+            int *temp1 = &(pre ->data);
+            int *temp2 = &((*L) ->data);
             int temp = pre ->data;
-            pre ->data = (*L)->data;
-            (*L) ->data = temp;
+            *temp1 = (*L) ->data;
+            *temp2 = temp;
         }
     }
     return *L;
