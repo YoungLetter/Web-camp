@@ -1,0 +1,88 @@
+ body{  /*设置背景*/
+     margin: 0;
+     padding: 0;
+
+     background-image: url("../html/background.jpg");
+     background-attachment: fixed;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center 20%;
+     font-family: sans-serif;
+ }
+
+.login-box{     /*创建一个外框盒子*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 400px;
+    background-color:rgba(0, 0, 0, 0.418);/*不要太黑*/
+    padding: 40px;
+
+    border-radius: 10px;
+    box-shadow: 14px 14px 14px rgba(0, 0, 0, 0.329);
+}
+
+.login-box h2{  /**/
+    margin-bottom: 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .login-field{
+    position: relative;
+}
+
+.login-box .login-field  input{
+    width: 100%;
+    margin-bottom: 30px;  
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+
+    border: none;
+    outline: none;      /*没有这个输出框会出现蓝色的边框*/
+    border-bottom: 1px solid #fff;
+
+    
+    background: transparent;
+}
+
+.login-box .login-field  label{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 16px;
+    color: #999;
+    letter-spacing: 1px;
+    padding: 10px 0;
+
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .login-field  input:focus ~ label,
+.login-box .login-field  input:valid ~ label{
+    left: 0px;
+    top: -24px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login-box button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: none;
+    padding: 10px 20px;
+    background: transparent;
+    color: #fff;
+    background-color: rgb(9, 176, 241);
+    
+    cursor: pointer;
+    border-radius: 5px;
+}
